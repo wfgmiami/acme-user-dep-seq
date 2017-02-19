@@ -1,0 +1,42 @@
+<html>
+<head><link rel="stylesheet" href="/vendors/bootstrap/dist/css/bootstrap.css"></head>
+<body>
+  <div class = "container">
+  <h3>Acme Sequelize</h3><br />
+    <div class = "row">
+      <div class = "col-sm-6">
+        <form action = "/departments" method = "POST">
+          <label>Department Name</label>
+          <input class = "form-control" name = "name"/><br/>
+          <button class = "btn btn-default" type="submit">Save</button>
+        </form>
+        <br/>
+        <h4>Departments</h4>
+        {% for dept in depts %}
+        {% include './_departmentForm.html' with { dept } %}
+        {% endfor %}
+      </div>
+
+
+      <div class = "col-sm-6">
+        <form action = "/users" method = "POST">
+          <label>User Name</label>
+          <input class = "form-control" name = "name"><br/>
+          <button class = "btn btn-default" type = "submit">Save</button>
+        </form>
+        <br/>
+        <h4>Users</h4>
+        {% for user in users %}
+        {% include './_userForm.html' with { user: user, depts: depts} %}
+        {% endfor %}
+      </div>
+
+    </div>
+
+  </div>
+
+</body>
+</html>
+
+
+

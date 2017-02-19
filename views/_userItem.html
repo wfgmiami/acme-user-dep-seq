@@ -1,0 +1,16 @@
+
+<form style= 'display: inline' action = "/users/100/user_departments" method = "POST">
+
+
+  <button class = "btn btn-default" type = 'submit'>
+    {% if user.hasDepartment(dept.name) %}
+      <span>{{ dept.name }}</span>
+    {% else %}
+      <span style="text-decoration: line-through" >{{ dept.name }}</span>
+    {% endif %}
+  </button>
+
+
+</form>
+
+
