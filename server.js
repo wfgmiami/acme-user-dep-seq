@@ -22,7 +22,7 @@ app.get('/', (req,res,next)=>{
   return db.models.Department.findAll()
   .then( _depts =>{
     depts = _depts;
-    return db.models.User.findAll({
+    return db.models.User.findAll({ order: '"name" ASC',
       include: [{
         model: db.models.UserDepartment,
         include: [{
