@@ -19,7 +19,7 @@ const User = db.define('user', {
         return check;
       },
       getUserDepartment: function(){
-        //return db.Department.findAll()
+
       }
 
     }

@@ -14,7 +14,10 @@ router.post('/', (req,res,next)=>{
 })
 
 router.delete('/:id',(req,res,next)=>{
-  db.models.Department.deleteDept(req.params.id)
+  db.models.UserDepartment.destroy({
+    where: { departmentId: req.params.id }
+  })
+  .then( () => db.models.Department.deleteDept(req.params.id))
   .then( ()=> res.redirect('/'))
   .catch (e => next(e));
 })

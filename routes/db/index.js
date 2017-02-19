@@ -16,15 +16,14 @@ const seed = ()=> {
   return sync()
   .then(()=>{
     return Promise.all([
-      User.create({ name: 'Alex' }),
-      User.create({ name: 'Joe' }),
+      User.create({ name: 'Adam' }),
       User.create({ name: 'Eve' }),
       Department.create({ name: 'Finance' }),
-      Department.create({ name: 'HR' })
+      Department.create({ name: 'Sales' })
 
     ])
   })
-  .spread( (user1, user2, user3, dept1, dept2) => {
+  .spread( (user1, user2, dept1, dept2) => {
     return Promise.all([
       UserDepartment.create({ userId: user1.id, departmentId: dept1.id }),
       UserDepartment.create({ userId: user1.id, departmentId: dept2.id }),
