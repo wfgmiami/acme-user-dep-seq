@@ -31,12 +31,10 @@ app.get('/', (req,res,next)=>{
       }]
     })
   })
-
   .then( users => { res.render('index', {depts, users})
   })
   .catch(next);
 })
-
 
 app.use('/departments', departments);
 app.use('/users', users);
