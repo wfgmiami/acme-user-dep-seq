@@ -14,7 +14,7 @@ describe('Models', ()=> {
     })
 
 
-    describe.only('seeded data', ()=>{
+    describe('seeded data', ()=>{
       let depts;
       beforeEach((done)=>{
         db.models.Department.findAll()
@@ -49,5 +49,17 @@ describe('Models', ()=> {
 
 
 })
+
+
+
+
+
+
+
+
+
+
+
+
 
 
