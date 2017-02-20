@@ -37,7 +37,6 @@ app.get('/', (req,res,next)=>{
   .catch(next);
 })
 
-
 app.use('/departments', departments);
 app.use('/users', users);
 
