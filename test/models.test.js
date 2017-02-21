@@ -45,6 +45,14 @@ describe('Models', ()=> {
         expect(users.length).to.equal(2);
       })
     })
+
+    describe('create already existing dept', ()=> {
+      it('does not return dept', (done)=>{
+        db.models.Department.create({ name: 'Sales' })
+         .catch( e => done());
+      })
+    })
+
   })
 
 

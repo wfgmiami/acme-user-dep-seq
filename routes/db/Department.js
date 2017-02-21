@@ -1,7 +1,10 @@
 const db = require('./db');
 
 const Department = db.define('department',{
-  name: db.Sequelize.STRING
+  name: {
+    type: db.Sequelize.STRING,
+    unique: true
+  }
 },{
   classMethods: {
     deleteDept: function(id){

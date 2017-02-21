@@ -36,6 +36,21 @@ describe('routes', ()=>{
         .catch( e=> done(e));
       })
     })
+
+    describe('post /departments', ()=>{
+      it('posts deparment', (done)=>{
+        client.post('/departments')
+          .send('name=HR')
+          .expect(302)
+          .then(()=>{
+            return client.get('/')
+          })
+          .then( result => expect(result.text).to.contain('HR'))
+          .then (()=> done())
+          .catch( e => done(e));
+      })
+    })
+
   })
 })
 
