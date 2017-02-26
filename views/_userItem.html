@@ -4,17 +4,18 @@
 {% else %}
   <form style= 'display: inline' action = "/users/{{ user.id }}/user_departments/" method = "POST">
 {% endif %}
-<input type='hidden' name='departmentId' value = "{{ dept.id }}"/>
 
-  <button class = "btn btn-default" type = 'submit'>
-    {% if user.hasDepartment(dept.name) %}
-      <span>{{ dept.name }}</span>
-    {% else %}
-      <span style="text-decoration: line-through" >{{ dept.name }}</span>
-    {% endif %}
-  </button>
+    <input type='hidden' name='departmentId' value = "{{ dept.id }}"/>
+
+    <button class = "btn btn-default" type = 'submit'>
+      {% if user.hasDepartment(dept.name) %}
+        <span>{{ dept.name }}</span>
+      {% else %}
+        <span style="text-decoration: line-through" >{{ dept.name }}</span>
+      {% endif %}
+    </button>
 
 
-</form>
+  </form>
 
 
