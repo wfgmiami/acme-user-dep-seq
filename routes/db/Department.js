@@ -11,13 +11,14 @@ const Department = db.define('department',{
       return this.destroy({ where: { id: id }})
     },
     createDept: function(name){
-      return db.models.department.findOne({ where: { name: name } })
+      //this makes sense... 
+      return db.models.department.findOne({ where: { name } })
       .then( dept => {
         if(dept) return dept;
-        return db.models.department.create({ name: name })
-      })
+        return db.models.department.create({ name });
+      });
     }
   }
-})
+});
 
 module.exports = Department;

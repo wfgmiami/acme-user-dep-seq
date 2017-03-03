@@ -9,8 +9,8 @@ User.hasMany(UserDepartment);
 Department.hasMany(UserDepartment);
 
 const sync = ()=> {
-  return db.sync({ force: true })
-}
+  return db.sync({ force: true });
+};
 
 const seed = ()=> {
   return sync()
@@ -22,16 +22,15 @@ const seed = ()=> {
       Department.create({ name: 'Sales' })
 
     ])
-  })
+  })//naming how about .spread( (adam, eve, finance, sales)
   .spread( (user1, user2, dept1, dept2) => {
     return Promise.all([
       UserDepartment.create({ userId: user1.id, departmentId: dept1.id }),
       UserDepartment.create({ userId: user1.id, departmentId: dept2.id }),
       UserDepartment.create({ userId: user2.id, departmentId: dept1.id }),
-    ])
-  })
-
-}
+    ]);
+  });
+};
 
 module.exports = {
   sync,
